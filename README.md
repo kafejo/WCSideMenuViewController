@@ -2,7 +2,7 @@
 
 It is improved version of [TWTSideMenuViewController](https://github.com/twotoasters/TWTSideMenuViewController "TWTSideMenuViewController") 
 
-<img src="https://raw.github.com/kafejo/WCSideMenuViewController/master/TWTSideMenuViewController-Sample/screenshots/screenshot01.png" width="400">
+<img src="https://raw.github.com/kafejo/WCSideMenuViewController/master/TWTSideMenuViewController-Sample/screenshots/screenshot02.png" width="400">
 
 ### Usage
 It's designed for immediate usage in your project. You can edit menu directly in storyboard or programmatically in MenuViewController.
