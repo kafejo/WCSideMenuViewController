@@ -29,7 +29,12 @@
     
     self.menuItems = [@[@"Whatever", @"More"] mutableCopy];
     
+    self.searchBar.backgroundImage = [UIImage new];
+    self.searchBar.alpha = 0.8f;
+    // For removing empty cells in table view
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+    // Registering cell indentifier for search bar
+    [self.searchDisplayController.searchResultsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"MenuItemCell"];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -66,7 +71,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+   
+        
+    
     static NSString *CellIdentifier = @"MenuItemCell";
+    
+    
     MenuItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
@@ -76,6 +86,8 @@
     
     
     return cell;
+    
+    
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
