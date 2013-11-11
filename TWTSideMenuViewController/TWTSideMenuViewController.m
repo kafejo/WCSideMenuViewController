@@ -88,9 +88,10 @@ static NSTimeInterval const kDefaultSwapAnimationClosedDuration = 0.35;
     [self.view insertSubview:self.menuViewController.view belowSubview:self.containerView];
     [self.menuViewController didMoveToParentViewController:self];
     
-    UISwipeGestureRecognizer *recognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(openMenu)];
-    [recognizer setDirection:UISwipeGestureRecognizerDirectionRight];
-    [self.view addGestureRecognizer:recognizer];
+    UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(openMenu)];
+    [swipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    
+    [self.view addGestureRecognizer:swipeRecognizer];
     
 }
 

@@ -29,6 +29,8 @@
 /** Time interval for opening and closing the side menu */
 @property (nonatomic, assign) NSTimeInterval animationDuration;
 
+@property (nonatomic, strong) UISwipeGestureRecognizer *swipeRecognizer;
+
 /** Is the menu currently open? */
 @property (nonatomic, assign, getter = isOpen) BOOL open;
 
