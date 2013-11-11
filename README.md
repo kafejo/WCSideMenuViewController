@@ -22,27 +22,27 @@ And finally cell actions. I'm using Storyboard ID for views identification.
 
 ```objective-c
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
-	NSString* pageName = @"";
-	switch (indexPath.row) {
-		case 0:
-			pageName = @"MainViewController";
-			break;
-		case 1:
-			pageName = @"MoreViewController";
-			break;
-		
-		default:
-			break;
-	}
-	if (![pageName isEqualToString:@""]) {
-		UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
-		MoreViewController *moreView = (MoreViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: pageName];
-		[self.sideMenuViewController setMainViewController: [[UINavigationController alloc] initWithRootViewController:moreView] animated:YES closeMenu:YES];
-	}
-
-	[self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
-
+   // NSLog(@"Selected: %i", indexPath.row);
+    NSString* storyboardID = @"";
+    switch (indexPath.row) {
+        case 0:
+            storyboardID = @"MainViewController";
+            break;
+        case 1:
+            storyboardID = @"MoreViewController";
+            break;
+            
+        default:
+            break;
+    }
+    if (![storyboardID isEqualToString:@""]) {
+        UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
+        MoreViewController *moreView = (MoreViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: storyboardID];
+        [self.sideMenuViewController setMainViewController: [[UINavigationController alloc] initWithRootViewController:moreView] animated:YES closeMenu:YES];
+    }
+    
+    [self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
+  
 }
 ```
 
