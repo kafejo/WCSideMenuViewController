@@ -1,6 +1,6 @@
 ## WCSideMenuViewController
 
-It is improved version of [TWTSideMenuViewController](https://github.com/twotoasters/TWTSideMenuViewController "TWTSideMenuViewController")https://github.com/twotoasters/TWTSideMenuViewController 
+It is improved version of [TWTSideMenuViewController](https://github.com/twotoasters/TWTSideMenuViewController "TWTSideMenuViewController") 
 
 <img src="https://raw.github.com/kafejo/WCSideMenuViewController/master/TWTSideMenuViewController-Sample/screenshots/screenshot01.png" width="400">
 
@@ -8,25 +8,19 @@ It is improved version of [TWTSideMenuViewController](https://github.com/twotoas
 It's designed for immediate usage in your project. You can edit menu directly in storyboard or programmatically in MenuViewController.
 
 There's mutable array of menu items 
-
 ```objective-c
-
 self.menuItems = [@[@"Whatever", @"More"] mutableCopy];
-
 ```
 
 If you want to change background you can to it also in MenuViewController (Image should be for @2x version 900x1036 px for portrait)
 
 ```objective-c
-	
  self.backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"galaxy2.png"]];
-
 ```
 
 And finally cell actions. I'm using Storyboard ID for views identification.
 
 ```objective-c
-	
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
 
 	NSString* pageName = @"";
@@ -50,12 +44,7 @@ And finally cell actions. I'm using Storyboard ID for views identification.
 	[self.tableView deselectRowAtIndexPath:self.tableView.indexPathForSelectedRow animated:YES];
 
 }
-
-
 ```
-
-
-
 
 ### TODO
 
