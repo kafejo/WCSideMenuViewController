@@ -28,6 +28,7 @@
     [self.view insertSubview:self.backgroundImageView belowSubview:self.tableView];
     
     self.menuItems = [@[@"Whatever", @"More"] mutableCopy];
+    
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
