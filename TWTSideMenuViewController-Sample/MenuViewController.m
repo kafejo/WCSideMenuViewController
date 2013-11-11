@@ -27,7 +27,7 @@
     self.backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"galaxy2.png"]];
     [self.view insertSubview:self.backgroundImageView belowSubview:self.tableView];
     
-    self.menuItems = [@[@"Whatever", @"More"] mutableCopy];
+    self.menuItems = [@[@"Whatever", @"More", @"Whatever", @"More", @"Whatever", @"More"] mutableCopy];
     
     self.searchBar.backgroundImage = [UIImage new];
     self.searchBar.alpha = 0.8f;
@@ -35,6 +35,21 @@
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     // Registering cell indentifier for search bar
     [self.searchDisplayController.searchResultsTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"MenuItemCell"];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuWasOpened:) name:@"MenuWasOpened" object:nil];
+}
+
+- (void)menuWasOpened:(NSNotification*)note {
+    [self hideAllCells];
+    [self animateCellsAtIndex:0 withDelay:0.2];
+}
+
+-(void)hideAllCells{
+    for (int i = 0; i < [self.menuItems count]; i++) {
+        NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:0];
+        UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:index];
+        cell.alpha = 0.0f;
+    }
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle
@@ -80,6 +95,9 @@
     MenuItemCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    
+    
     cell.text.text = [self.menuItems objectAtIndex:indexPath.row];
     cell.text.textColor = [UIColor whiteColor];
     cell.backgroundColor = [UIColor clearColor];
@@ -88,6 +106,36 @@
     return cell;
     
     
+}
+
+-(void)animateCellsAtIndex:(NSInteger)i withDelay:(CGFloat)delay{
+    
+    if (i >= [self.menuItems count]) {
+        return ;
+    }
+    
+    NSIndexPath *index = [NSIndexPath indexPathForRow:i inSection:0];
+    UITableViewCell* cell = [self.tableView cellForRowAtIndexPath:index];
+    [UIView animateWithDuration:0.45 delay:delay options:UIViewAnimationOptionTransitionCurlDown animations:^{
+        cell.alpha = 0.0f;
+        cell.alpha = 1.0f;
+    } completion:^(BOOL finished) {
+        
+    }];
+    [self animateCellsAtIndex:(i+1) withDelay:(delay+0.04)];
+    /*
+    [UIView animateWithDuration:2.0 animations:^{
+      
+    } completion:^(BOOL finished) {
+        
+    }];
+    */
+    
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+   
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

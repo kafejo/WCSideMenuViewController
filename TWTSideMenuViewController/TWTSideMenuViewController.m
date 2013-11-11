@@ -212,6 +212,12 @@ static NSTimeInterval const kDefaultSwapAnimationClosedDuration = 0.35;
         return;
     }
     self.open = YES;
+    
+    // animation
+    //[(MenuViewController*)self.sideMenuViewController.menuViewController animateCells];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"MenuWasOpened" object:self];
+    
+    
     self.menuViewController.view.transform = [self closeTransformForMenuView];
 
     void (^openMenuBlock)(void) = ^{
