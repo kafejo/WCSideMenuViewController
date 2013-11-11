@@ -92,21 +92,21 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
    // NSLog(@"Selected: %i", indexPath.row);
-    NSString* pageName = @"";
+    NSString* storyboardID = @"";
     switch (indexPath.row) {
         case 0:
-            pageName = @"MainViewController";
+            storyboardID = @"MainViewController";
             break;
         case 1:
-            pageName = @"MoreViewController";
+            storyboardID = @"MoreViewController";
             break;
             
         default:
             break;
     }
-    if (![pageName isEqualToString:@""]) {
+    if (![storyboardID isEqualToString:@""]) {
         UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Storyboard" bundle: nil];
-        MoreViewController *moreView = (MoreViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: pageName];
+        MoreViewController *moreView = (MoreViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: storyboardID];
         [self.sideMenuViewController setMainViewController: [[UINavigationController alloc] initWithRootViewController:moreView] animated:YES closeMenu:YES];
     }
     
