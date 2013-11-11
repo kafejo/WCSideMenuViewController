@@ -46,10 +46,17 @@ And finally cell actions. I'm using Storyboard ID for views identification.
 }
 ```
 
+Also you can turn swipe gesture off in AppDelegate
+
+```objective-c
+    [self.sideMenuViewController.swipeRecognizer setEnabled:NO]; // default YES
+```
+
+
 ### TODO
 
 - Automatically adding menu button into each view
-- Swipe gesture
+- <del>Swipe gesture</del>
 
 ### Requirements
 
